@@ -3,14 +3,14 @@
                 [cheshire.core :as json]))
 
 (defn lista-companhias [] 
-    (let [url "https://brapi.dev/api/quote/list?sortBy=name&sortOrder=asc&token=mgjZ3zcy8Vmi9Lg6fzQRdq"]
+    (let [url "https://brapi.dev/api/quote/list?sortBy=name&sortOrder=asc&token=seuToken"]
         (-> url 
             (http/get)
             :body
             (json/parse-string true))))
 
 (defn buscar-companhia [nome]
-    (let [url "https://brapi.dev/api/quote/list?sortBy=name&sortOrder=asc&token=mgjZ3zcy8Vmi9Lg6fzQRdq"
+    (let [url "https://brapi.dev/api/quote/list?sortBy=name&sortOrder=asc&token=seuToken"
         response (-> url
                 (http/get)
                 :body
@@ -39,7 +39,7 @@
                 )))))
 
 (defn tipo-ativo [codigo-acao]
-    (let [url (str "https://api.hgbrasil.com/finance/stock_price?key=f1cde2fc&symbol=" codigo-acao)]
+    (let [url (str "https://api.hgbrasil.com/finance/stock_price?key=seuToken&symbol=" codigo-acao)]
         (let [response (-> url
                         (http/get)
                         :body
@@ -58,7 +58,7 @@
 
 
 (defn buscar-acao [codigo-acao]
-    (let [url (str "https://brapi.dev/api/quote/" codigo-acao "?range=1d&interval=1d&token=mgjZ3zcy8Vmi9Lg6fzQRdq")]
+    (let [url (str "https://brapi.dev/api/quote/" codigo-acao "?range=1d&interval=1d&token=seuToken")]
         (try 
             (let [response (-> url
                             (http/get)
