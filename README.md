@@ -1,7 +1,5 @@
 # financeiro
 
-FIXME
-
 ## Prerequisites
 
 You will need [Leiningen][] 2.0.0 or above installed.
